@@ -187,7 +187,9 @@ if command -v fly > /dev/null 2>&1; then
 fi
 
 if command -v pipx > /dev/null 2>&1; then
-  eval "$(register-python-argcomplete pipx)"
+  if command -v register-python-argcomplete > /dev/null 2>&1; then
+    eval "$(register-python-argcomplete pipx)"
+  fi
 fi
 
 fpath=(~/.zsh/custom ~/.zsh/completions $fpath)
